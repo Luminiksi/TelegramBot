@@ -25,38 +25,20 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
         }
 
         if (getMessageText().equals("/bye")) {
-            sendTextMessageAsync("Пока!");
+            sendTextMessageAsync("Asta la vista, baby!");
         }
 
-        if (getMessageText().equals("Как здоровье?")) {
-            sendTextMessageAsync("Хорошо");
+        if (getMessageText().contains("животинка")) {
+            sendTextMessageAsync("Ваше любимое животное?",
+                    Map.of("Кот", "cat", "Собака", "dog"));
         }
 
-        if (getMessageText().contains("бомба")) {
-            sendTextMessageAsync("Опасность!");
+        if (getCallbackQueryButtonKey().equals("cat")) {
+            sendPhotoMessageAsync("step_4_pic");
         }
 
-        if (getMessageText().contains("картинка")) {
-            sendPhotoMessageAsync("step_8_pic");
-        }
-
-        if (getMessageText().contains("кот")) {
-            sendTextMessageAsync("Выберите номер кота: ",
-                    Map.of("кот 1", "cat1", "кот 2", "cat2"));
-                    //Map.of("Текст-на-кнопке1", "команда1", "Текст-на-кнопке2", "команда2"));
-        }
-
-        if (getCallbackQueryButtonKey().equals("cat1")) {
-            sendPhotoMessageAsync("step_1_pic");
-        }
-
-        if (getCallbackQueryButtonKey().equals("cat2")) {
-            sendPhotoMessageAsync("step_2_pic");
-        }
-
-        if (getMessageText().equals("smile")) {
-            var message = getLastSentMessage();
-            editTextMessageAsync(message.getMessageId(), message.getText() + " =P ");
+        if (getCallbackQueryButtonKey().equals("dog")) {
+            sendPhotoMessageAsync("step_6_pic");
         }
     }
 
