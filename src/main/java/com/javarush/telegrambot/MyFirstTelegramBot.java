@@ -36,11 +36,12 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
         }
 
 //        2. взломать робот-пылесос
-        if (getCallbackQueryButtonKey().equals("step_2_btn")) {
+        if (getCallbackQueryButtonKey().equals("step_2_btn") && getUserGlory() == 20) {
+            addUserGlory(20);
             sendTextMessageAsync(STEP_3_TEXT, Map.of("Взлом робота-пылесоса", "step_3_btn"));
         }
 
-        if (getCallbackQueryButtonKey().equals("step_3_btn")) {
+        if (getCallbackQueryButtonKey().equals("step_3_btn") && getUserGlory() == 40) {
             addUserGlory(30);
             sendTextMessageAsync(STEP_4_TEXT, Map.of("Отправить за едой! + 30 славы", "step_4_btn",
                     "Покататься на пылесосе! + 30 славы", "step_4_btn",
@@ -48,10 +49,36 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
         }
 
 //        3. взломать камеру Go-Pro
+        if (getCallbackQueryButtonKey().equals("step_4_btn") && getUserGlory() == 70) {
+            addUserGlory(30);
+            sendTextMessageAsync(STEP_5_TEXT, Map.of("Надеть и включить его", "step_6_btn"));
+        }
+
+        if (getCallbackQueryButtonKey().equals("step_6_btn") && getUserGlory() == 100) {
+            addUserGlory(40);
+            sendTextMessageAsync(STEP_6_TEXT, Map.of("Помахать себе в зеркале! + 40 славы", "step_7_btn",
+                    "Бегать по комнате и снимать всё! + 40 славы", "step_7_btn",
+                    "Сделать колесо с GoPro! + 40 славы", "step_7_btn"));
+        }
 
 //        4. взломать комьютер
+        if (getCallbackQueryButtonKey().equals("step_7_btn") && getUserGlory() == 140) {
+            addUserGlory(40);
+            sendTextMessageAsync(STEP_7_TEXT, Map.of("Взломать пароль от компьютера", "step_8_btn"));
+        }
+
+        if (getCallbackQueryButtonKey().equals("step_8_btn") && getUserGlory() == 180) {
+            addUserGlory(50);
+            sendTextMessageAsync(STEP_8_TEXT, Map.of("Открыть косынку! + 50 славы", "step_9_btn",
+                    "Серфить интернет! + 50 славы", "step_9_btn",
+                    "Скачать видео с GoPro! + 50 славы", "step_9_btn"));
+        }
 
 //        5. хвастаемся дворовым котам
+        if (getCallbackQueryButtonKey().equals("step_9_btn") && getUserGlory() == 230) {
+            addUserGlory(50);
+            sendTextMessageAsync(FINAL_TEXT);
+        }
     }
 
     public static void main(String[] args) throws TelegramApiException {
