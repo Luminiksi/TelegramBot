@@ -83,7 +83,7 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
 //        5. хвастаемся дворовым котам
         if (getCallbackQueryButtonKey().equals("step_9_btn") && getUserGlory() == 230) {
             addUserGlory(50);
-            sendPhotoMessageAsync("final_pic");
+            sendPhotoMessageAsync("C:\\Git\\TelegramBot\\src\\main\\resources\\images\\final_pic.jpg");
             sendTextMessageAsync(FINAL_TEXT);
         }
     }
